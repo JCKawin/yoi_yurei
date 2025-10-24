@@ -1,6 +1,7 @@
 import pygame
 from constants import *
 import sys
+from os.path import join
 
 class Main():
     def __init__(self):
@@ -9,7 +10,9 @@ class Main():
         except : print("NO Sound Device Detected")
         try : 
             pygame.display.init()
-            self.screen = pygame.display.set_mode(RES) 
+            self.screen = pygame.display.set_mode(RES)
+            pygame.display.set_icon(pygame.image.load(join("img", "logo.png")).convert_alpha())
+            pygame.display.set_caption("良い幽霊") 
 
         except: print("NO Display found")
 
@@ -20,10 +23,20 @@ class Main():
         self.running = True
 
     def _load(self):
-        pass
+        #images
+        self.logo = pygame.image.load(join("img", "logo.png")).convert_alpha()
+
+        #audio
+        pygame.mixer.music.load(join("audio" ,"theme_music.ogg"),"ogg")
+
+        #font
+        
+    
 
     def run(self):
+        pygame.mixer.music.play(loops=-1)
         while self.running:
+            pygame.mixer.music.play()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
