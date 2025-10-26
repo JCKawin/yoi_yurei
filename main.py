@@ -6,7 +6,8 @@ from os.path import join
 class Main():
     def __init__(self):
         pygame.init()
-        try : pygame.mixer.init()
+        try : 
+            pygame.mixer.init()
         except : print("NO Sound Device Detected")
         try : 
             pygame.display.init()
@@ -35,8 +36,9 @@ class Main():
 
     def run(self):
         pygame.mixer.music.play(loops=-1)
+        pygame.mixer.music.set_volume(1)
         while self.running:
-            pygame.mixer.music.play()
+            
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
