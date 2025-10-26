@@ -2,6 +2,8 @@ import pygame
 from constants import *
 import sys
 from os.path import join
+import start
+import levels
 
 class Main():
     def __init__(self):
@@ -22,6 +24,9 @@ class Main():
         self._load()
         self.clock = pygame.time.Clock()
         self.running = True
+        self.game_state = "start"
+        self.game = {"start":start.start_screen(self.screen , self.f_base120),
+                     "level1":levels.level1(self)}
 
     def _load(self):
         #images
@@ -31,6 +36,7 @@ class Main():
         pygame.mixer.music.load(join("audio" ,"theme_music.ogg"),"ogg")
 
         #font
+        self.f_base120 = pygame.font.Font(join("font" , "AmedademoRegular-ow8K0.otf"),120)
         
     
 
@@ -42,8 +48,10 @@ class Main():
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
+                if event.type == pygame.KEYDOWN and self.game_state == "start":
+                    self.game_state = "level1"
         
-            self.screen.fill(BG_COLOR)
+            self.game[self.game_state].run()
             pygame.display.flip()
 
         else:
