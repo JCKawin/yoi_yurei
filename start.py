@@ -5,7 +5,7 @@ class start_screen:
         self.screen = screen
         self.font = font
 
-    def run(self):
+    def run(self , dt):
         self.screen.fill("black")
         text = self.font.render("START" , True , "#ffdf00")
         text_rect = text.get_rect()

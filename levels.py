@@ -7,7 +7,8 @@ class level1:
         self.character = pygame.sprite.Group()
         character.BaseCharacter(self.character , main)
         
-    def run(self):
+    def run(self , dt):
+        key = pygame.key.get_pressed()
         self.screen.fill("white")
-        self.character.draw()
-        self.character.update()
+        self.character.draw(self.screen)
+        self.character.update(key , dt)

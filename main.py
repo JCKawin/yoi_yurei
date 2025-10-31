@@ -44,6 +44,7 @@ class Main():
         pygame.mixer.music.play(loops=-1)
         pygame.mixer.music.set_volume(1)
         while self.running:
+            dt = self.clock.tick()
             
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -51,7 +52,7 @@ class Main():
                 if event.type == pygame.KEYDOWN and self.game_state == "start":
                     self.game_state = "level1"
         
-            self.game[self.game_state].run()
+            self.game[self.game_state].run(dt)
             pygame.display.flip()
 
         else:
