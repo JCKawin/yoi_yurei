@@ -5,8 +5,7 @@ from constants import *
 class level1:
     def __init__(self , main) -> None:
         self.screen : pygame.surface.Surface = main.screen
-        self.character = pygame.sprite.Group()
-        character.BaseCharacter(self.character , main)
+        self.character = character.BaseCharacter(self)
         self.floor = pygame.surface.Surface((RES[0] , 100))
 
     def run(self , dt):
