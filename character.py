@@ -1,3 +1,4 @@
+from tkinter import W
 import pygame
 from constants import *
 
@@ -19,10 +20,10 @@ class BaseCharacter(pygame.sprite.Sprite):
         self.velocity.x = int(key[pygame.K_d]) - int(key[pygame.K_a])
         key_get = pygame.key.get_just_pressed()
         if self.falling:
-            self.velocity.y+=GRAVITY*dt
+            self.velocity.y += GRAVITY*dt
         if key_get[pygame.K_SPACE] and not self.falling:
             print("space pressed",dt)
-            self.velocity.y -= 2 * dt
+            self.velocity.y =  -2 * dt
 
         self.rect.center += self.velocity * dt
 
