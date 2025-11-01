@@ -1,4 +1,5 @@
 import pygame
+from constants import *
 
 class BaseCharacter(pygame.sprite.Sprite):
     def __init__(self , group , main):
@@ -14,6 +15,13 @@ class BaseCharacter(pygame.sprite.Sprite):
         self.direction.x = int(key[pygame.K_d]) - int(key[pygame.K_a])
         self.rect.x += ( self.direction.x * self.velocity) * dt #type: ignore
         if key[pygame.K_SPACE]:
-            self.rect.y -= 1 * dt
+            self.rect.y -= 20 * dt
 
-        self.rect.y += 0.9 * dt
+
+        if self.rect.bottom > RES[1] - 100:
+            self.rect.y -= 0
+        else:
+            self.rect.y += 0.9 * dt
+            
+
+        
