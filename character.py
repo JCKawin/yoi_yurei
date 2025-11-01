@@ -26,10 +26,7 @@ class BaseCharacter(pygame.sprite.Sprite):
 
         self.rect.center += self.velocity * dt
 
-        # if self.rect.bottom > RES[1] - 100:
-        #     self.rect.y -= 0
-        # else:
-        #     self.rect.y += 0.9 * dt
+        
             
 
         
