@@ -20,9 +20,9 @@ class BaseCharacter(pygame.sprite.Sprite):
         key_get = pygame.key.get_just_pressed()
         if self.falling:
             self.velocity.y+=GRAVITY*dt
-        if key_get[pygame.K_SPACE]:
+        if key_get[pygame.K_SPACE] and not self.falling:
             print("space pressed",dt)
-            self.velocity.y -= 20 * dt
+            self.velocity.y -= 2 * dt
 
         self.rect.center += self.velocity * dt
 
