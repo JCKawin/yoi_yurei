@@ -23,8 +23,8 @@ class level1:
             self.character.falling=True
         else:
             self.character.velocity.y=0
+            self.character.rect.bottom=self.floor.rect.top
             self.character.falling=False
-
         self.character.update(key , dt)
         #collisions
 

@@ -37,14 +37,14 @@ class Main():
 
         #font
         self.f_base120 = pygame.font.Font(join("font" , "AmedademoRegular-ow8K0.otf"),120)
-        self.f_base30 = pygame.font.Font(join("font" , "AmedademoRegular-ow8K0.otf"),30)
+        
     
 
     def run(self):
         pygame.mixer.music.play(loops=-1)
         pygame.mixer.music.set_volume(1)
         while self.running:
-            dt = self.clock.tick(FPS)
+            dt = self.clock.tick()
             
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
